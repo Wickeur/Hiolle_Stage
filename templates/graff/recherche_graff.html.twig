@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Graff - Recherche Avancée{% endblock %}
+
+{% block body %}
+    {% include 'le_CSS/css_recherche_avancee.html.twig' %}
+
+    <div class="recherche">
+        {{ form_start(form) }}
+        <h4>{{ form_row(form.utilisateur_graff) }}</h4>
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+        {{ form_end(form) }}
+    </div>
+
+    <div class="contenu">
+        {% for lesPC in LesOrdiGraff %}
+            <h1><u>{{ lesPC.utilisateurGraff }}</u></h1>
+            <div class="info">
+                <div class="infoplus"><h3>Nom de station</h3>
+                    {{ lesPC.nomStationGraff }}</div>
+                <div class="infoplus"><h3>Marque</h3>
+                    {{ lesPC.marqueStationGraff }}</div>
+                <div class="infoplus"><h3>Adresse</h3>
+                    {{ lesPC.adresseMacGraff }}</div>
+                <div class="infoplus"><h3>TAG</h3>
+                    {{ lesPC.tagGraff }}</div>
+                <div class="infoplus"><h3>Microsoft</h3>
+                    {{ lesPC.microsoftGraff }}</div>
+                <div class="infoplus"><h3>Station d'acceuil</h3>
+                    {{ lesPC.stationAcceuilGraff }}</div>
+                <div class="infoplus"><h3>Moniteur</h3>
+                    {{ lesPC.moniteurGraff }}</div>
+                <div class="infoplus"><h3>Clavier + Souris</h3>
+                    {{ lesPC.clavierSourisGraff }}</div>
+            </div>
+            <div class="lesBoutons">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path("modif_graff", { id:lesPC.id}) }}" class="btn btn-dark">Modifier</a>
+                    <a href="{{ path("sup_graff", { id:lesPC.id}) }}" class="btn btn-danger">Supprimer</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

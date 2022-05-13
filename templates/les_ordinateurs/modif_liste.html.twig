@@ -1,33 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ma donnée à modifier{% endblock %}
+{% block title %}Amodiag - Modification{% endblock %}
 
 {% block body %}
-    <style>
-        h1{
-            text-align: center;
-            margin: 10px;
-            padding: 10px;
-        }
-
-        .formulaire{
-            position: relative;
-            left: 10%;
-            width: 80%;
-            color: white;
-        }
-    </style>
+    {% include 'le_CSS/css_modif.html.twig' %}
 
         <div class="formulaire">
             <div class="row">
                 <h2>Modifier la donnée</h2>
                 <form action="" method="POST">
                     <div class="mb-3">
-                        <label for="nom_de_la_station" class="form-label">Son nom de station</label>
+                        <label for="nom_de_la_station" class="form-label">Nom de station</label>
                         <input required type="text" class="form-control" id="nom_de_la_station" name="nom_de_la_station" value="{{ lesOrdinateurs.nomDeLaStation }}">
                     </div>
                     <div class="mb-3">
-                        <label for="utilisateur_habituel" class="form-label">Nom d'utilisateur</label>
+                        <label for="utilisateur_habituel" class="form-label">Nom utilisateur</label>
                         <input required type="text" class="form-control" id="utilisateur_habituel" name="utilisateur_habituel" value="{{ lesOrdinateurs.utilisateurHabituel }}">
                     </div>
                     <div class="mb-3">
@@ -35,11 +22,11 @@
                         <input required type="text" class="form-control" id="marque_de_la_station" name="marque_de_la_station" value="{{ lesOrdinateurs.marqueDeLaStation }}">
                     </div>
                     <div class="mb-3">
-                        <label for="adresse_mac" class="form-label">Adresse MAC</label>
+                        <label for="adresse_mac" class="form-label">L'adresse MAC</label>
                         <input required type="text" class="form-control" id="adresse_mac" name="adresse_mac" value="{{ lesOrdinateurs.adresseMac }}">
                     </div>
                     <div class="mb-3">
-                        <label for="tag" class="form-label">TAG</label>
+                        <label for="tag" class="form-label">Le TAG</label>
                         <input required type="text" class="form-control" id="tag" name="tag" value="{{ lesOrdinateurs.tag }}">
                     </div>
                     <div class="mb-3">
@@ -47,11 +34,11 @@
                         <input required type="text" class="form-control" id="microsoft_office" name="microsoft_office" value="{{ lesOrdinateurs.microsoftOffice }}">
                     </div>
                     <div class="mb-3">
-                        <label for="station_acceuil" class="form-label">La station acceuil</label>
+                        <label for="station_acceuil" class="form-label">Nom de la station acceuil</label>
                         <input required type="text" class="form-control" id="station_acceuil" name="station_acceuil" value="{{ lesOrdinateurs.stationAcceuil }}">
                     </div>
                     <div class="mb-3">
-                        <label for="moniteur" class="form-label">Son moniteur</label>
+                        <label for="moniteur" class="form-label">Nom du moniteur</label>
                         <input required type="text" class="form-control" id="moniteur" name="moniteur" value="{{ lesOrdinateurs.moniteur }}">
                     </div>
                     <div class="mb-3">
@@ -64,5 +51,4 @@
                 </form>
             </div>
         </div>
-
 {% endblock %}

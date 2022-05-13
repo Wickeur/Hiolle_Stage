@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Graff - Modification{% endblock %}
+
+{% block body %}
+   {% include 'le_CSS/css_modif.html.twig' %}
+
+    <div class="formulaire">
+        <div class="row">
+            <h2>Modifier la donnée</h2>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="nom_station_graff" class="form-label">Nom de station</label>
+                    <input required type="text" class="form-control" id="nom_station_graff" name="nom_station_graff" value="{{ LesOrdiGraff.nomStationGraff }}">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_graff" class="form-label">Nom utilisateur</label>
+                    <input type="text" class="form-control" id="utilisateur_graff" name="utilisateur_graff" value="{{ LesOrdiGraff.utilisateurGraff }}">
+                </div>
+                <div class="mb-3">
+                    <label for="marque_station_graff" class="form-label">Marque de la station</label>
+                    <input type="text" class="form-control" id="marque_station_graff" name="marque_station_graff" value="{{ LesOrdiGraff.marqueStationGraff }}">
+                </div>
+                <div class="mb-3">
+                    <label for="adresse_mac_graff" class="form-label">L'adresse MAC</label>
+                    <input type="text" class="form-control" id="adresse_mac_graff" name="adresse_mac_graff" value="{{ LesOrdiGraff.adresseMacGraff }}">
+                </div>
+                <div class="mb-3">
+                    <label for="tag_graff" class="form-label">Le TAG</label>
+                    <input type="text" class="form-control" id="tag_graff" name="tag_graff" value="{{ LesOrdiGraff.tagGraff }}">
+                </div>
+                <div class="mb-3">
+                    <label for="microsoft_graff" class="form-label">Microsoft Office</label>
+                    <input type="text" class="form-control" id="microsoft_graff" name="microsoft_graff" value="{{ LesOrdiGraff.microsoftGraff }}">
+                </div>
+                <div class="mb-3">
+                    <label for="station_acceuil_graff" class="form-label">Nom de la station acceuil</label>
+                    <input type="text" class="form-control" id="station_acceuil_graff" name="station_acceuil_graff" value="{{ LesOrdiGraff.stationAcceuilGraff }}">
+                </div>
+                <div class="mb-3">
+                    <label for="moniteur_graff" class="form-label">Nom du moniteur</label>
+                    <input type="text" class="form-control" id="moniteur_graff" name="moniteur_graff" value="{{ LesOrdiGraff.moniteurGraff }}">
+                </div>
+                <div class="mb-3">
+                    <label for="clavier_souris_graff" class="form-label">Clavier + Souris</label>
+                    <input type="text" class="form-control" id="clavier_souris_graff" name="clavier_souris_graff" value="{{ LesOrdiGraff.clavierSourisGraff }}">
+                </div>
+
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+{% endblock %}

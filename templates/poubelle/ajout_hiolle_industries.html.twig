@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Industries - Nouvel ajout{% endblock %}
+
+{% block body %}
+    {% include 'le_CSS/css_formulaire.html.twig' %}
+    <!--PAGE NON UTILISE-->
+
+    <div class="formulaire">
+        <div class="row">
+            {% if msg %}
+                <div class="alert alert-success">{{ msg }}</div>
+            {% endif %}
+            <h2>Ajout de données</h2>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="nom_station_h_indu" class="form-label">Quel est le nom de la station ?</label>
+                    <input required type="text" class="form-control" id="nom_station_h_indu" name="nom_station_h_indu">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_h_indu" class="form-label">Quel est l'utilisateur ? (prénom et nom)</label>
+                    <input type="text" class="form-control" id="utilisateur_h_indu" name="utilisateur_h_indu" placeholder="ex: Julian WICKE">
+                </div>
+                <div class="mb-3">
+                    <label for="marque_station_h_indu" class="form-label">Quel est la marque de la station ?</label>
+                    <input type="text" class="form-control" id="marque_station_h_indu" name="marque_station_h_indu">
+                </div>
+                <div class="mb-3">
+                    <label for="adresse_mac_h_indu" class="form-label">Quel est l'adresse mac ?</label>
+                    <input type="text" class="form-control" id="adresse_mac_h_indu" name="adresse_mac_h_indu">
+                </div>
+                <div class="mb-3">
+                    <label for="tag_h_indu" class="form-label">Quel est le tag ?</label>
+                    <input type="text" class="form-control" id="tag_h_indu" name="tag_h_indu">
+                </div>
+                <div class="mb-3">
+                    <label for="microsoft_h_indu" class="form-label">Quel est le microsoft office ?</label>
+                    <input type="text" class="form-control" id="microsoft_h_indu" name="microsoft_h_indu">
+                </div>
+                <div class="mb-3">
+                    <label for="station_acceuil_h_indu" class="form-label">Quel est la station acceuil ?</label>
+                    <input type="text" class="form-control" id="station_acceuil_h_indu" name="station_acceuil_h_indu">
+                </div>
+                <div class="mb-3">
+                    <label for="moniteur_h_indu" class="form-label">Quel est le moniteur ?</label>
+                    <input type="text" class="form-control" id="moniteur_h_indu" name="moniteur_h_indu">
+                </div>
+                <div class="mb-3">
+                    <label for="clavier_souris_h_indu" class="form-label">Clavier + Souris ?</label>
+                    <input type="text" class="form-control" id="clavier_souris_h_indu" name="clavier_souris_h_indu">
+                </div>
+
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+{% endblock %}

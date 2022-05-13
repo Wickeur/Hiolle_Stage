@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Technologies - Modification{% endblock %}
+
+{% block body %}
+    {% include 'le_CSS/css_modif.html.twig' %}
+
+    <div class="formulaire">
+        <div class="row">
+            <h2>Modifier la donnée</h2>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="nom_station_h_tech" class="form-label">Nom de station</label>
+                    <input required type="text" class="form-control" id="nom_station_h_tech" name="nom_station_h_tech" value="{{ LesOrdiHiolleTechnologies.nomStationHTech }}">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_h_tech" class="form-label">Nom utilisateur</label>
+                    <input type="text" class="form-control" id="utilisateur_h_tech" name="utilisateur_h_tech" value="{{ LesOrdiHiolleTechnologies.utilisateurHTech }}">
+                </div>
+                <div class="mb-3">
+                    <label for="marque_station_h_tech" class="form-label">Marque de la station</label>
+                    <input type="text" class="form-control" id="marque_station_h_tech" name="marque_station_h_tech" value="{{ LesOrdiHiolleTechnologies.marqueStationHTech }}">
+                </div>
+                <div class="mb-3">
+                    <label for="adresse_mac_h_tech" class="form-label">L'adresse MAC</label>
+                    <input type="text" class="form-control" id="adresse_mac_h_tech" name="adresse_mac_h_tech" value="{{ LesOrdiHiolleTechnologies.adresseMacHTech }}">
+                </div>
+                <div class="mb-3">
+                    <label for="tag_h_tech" class="form-label">Le TAG</label>
+                    <input type="text" class="form-control" id="tag_h_tech" name="tag_h_tech" value="{{ LesOrdiHiolleTechnologies.tagHTech }}">
+                </div>
+                <div class="mb-3">
+                    <label for="microsoft_h_tech" class="form-label">Microsoft Office</label>
+                    <input type="text" class="form-control" id="microsoft_h_tech" name="microsoft_h_tech" value="{{ LesOrdiHiolleTechnologies.microsoftHTech }}">
+                </div>
+                <div class="mb-3">
+                    <label for="station_acceuil_h_tech" class="form-label">Nom de la station acceuil</label>
+                    <input type="text" class="form-control" id="station_acceuil_h_tech" name="station_acceuil_h_tech" value="{{ LesOrdiHiolleTechnologies.stationAcceuilHTech }}">
+                </div>
+                <div class="mb-3">
+                    <label for="moniteur_h_tech" class="form-label">Nom du moniteur</label>
+                    <input type="text" class="form-control" id="moniteur_h_tech" name="moniteur_h_tech" value="{{ LesOrdiHiolleTechnologies.moniteurHTech }}">
+                </div>
+                <div class="mb-3">
+                    <label for="clavier_souris_h_tech" class="form-label">Clavier + Souris</label>
+                    <input type="text" class="form-control" id="clavier_souris_h_tech" name="clavier_souris_h_tech" value="{{ LesOrdiHiolleTechnologies.clavierSourisHTech }}">
+                </div>
+
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+{% endblock %}
