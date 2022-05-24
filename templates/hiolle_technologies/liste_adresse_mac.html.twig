@@ -1,0 +1,95 @@
+<table class="table table-hover">
+    <thead class="titre">
+    <tr>
+        <th>Hiolle-tech <br>
+            192.168.10.8
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_ip_adr_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_ip_adr_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>CETAM<br>
+            192.168.10.10
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_ip_cetam_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_ip_cetam_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Mac adresse
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_mac_adr_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_mac_adr_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Utilisateur
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_utilisateur_adr_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_utilisateur_adr_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Hiolle-tech
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_hiolle_adr_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_hiolle_adr_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>CETAM
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_cetam_adr_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_cetam_adr_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        {% if is_granted('ROLE_ADMIN') %}
+            <th></th>
+        {% endif %}
+    </tr>
+    </thead>
+    <!--La liste-->
+    <tbody>
+    {% for lesAdresses in AdresseMacHiolleTech %}
+        <tr>
+            <td>{{ lesAdresses.ipAdrHTech }}</td>
+            <td>{{ lesAdresses.ipCetamHTech }}</td>
+            <td>{{ lesAdresses.macAdrHTech }}</td>
+            <td>{{ lesAdresses.utilisateurAdrHTech }}</td>
+            <td>{{ lesAdresses.hiolleAdrHTech }}</td>
+            <td>{{ lesAdresses.cetamAdrHTech }}</td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td><a href="{{ path("modif_adresse_h_tech", { id:lesAdresses.id}) }}" class="btn btn-dark">Modifier</a>
+                <a href="{{ path("sup_adresse_mac_h_tech", { id:lesAdresses.id}) }}" class="btn btn-danger">Supprimer</a></td>
+            {% endif %}
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>

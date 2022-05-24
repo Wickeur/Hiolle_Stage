@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <style>
+        /*Partie Connexion à un compte*/
+        .connexion {
+            position: relative;
+            top: 150px;
+            left: 40%;
+            width: 20%;
+            text-align: center;
+            color: white;
+            background-color: #251f1f79;
+            padding: 1%;
+            border-radius: 2%;
+            opacity: 0.9;
+        }
+
+        /*Partie Boostrap*/
+        .form-control,
+        .form-control:focus {
+            background-color: transparent;
+            border: 1px solid #9a9b9c;
+            border-radius: 0.5rem;
+            color: #f8f9fa;
+        }
+
+        .form-control::placeholder,
+        a:hover {
+            color: #9a9b9c;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+    </style>
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div class="contenu">
+        <div class="connexion">
+            <h1>Connexion</h1>
+            <form action="{{ path('login') }}" method="post">
+                <label class="form-control" for="username">Nom d'utilisateur:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token("authenticate") }}">
+                <label class="form-control" for="password">Mot de passe:</label>
+                <input type="password" id="password" name="_password"/>
+
+                <button class="btn btn-outline-light form-control" type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

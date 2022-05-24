@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Industries - Modification{% endblock %}
+
+{% block body %}
+    {% include 'le_CSS/css_modif.html.twig' %}
+
+    <div class="formulaire">
+        <div class="row">
+            <h2>Modifier la donnée</h2>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="nom_station_h_indu" class="form-label">Nom de station</label>
+                    <input required type="text" class="form-control" id="nom_station_h_indu" name="nom_station_h_indu" value="{{ LesOrdiHiolleIndustries.nomStationHIndu }}">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_h_indu" class="form-label">Nom utilisateur</label>
+                    <input type="text" class="form-control" id="utilisateur_h_indu" name="utilisateur_h_indu" value="{{ LesOrdiHiolleIndustries.utilisateurHIndu }}">
+                </div>
+                <div class="mb-3">
+                    <label for="marque_station_h_indu" class="form-label">Marque de la station</label>
+                    <input type="text" class="form-control" id="marque_station_h_indu" name="marque_station_h_indu" value="{{ LesOrdiHiolleIndustries.marqueStationHIndu }}">
+                </div>
+                <div class="mb-3">
+                    <label for="adresse_mac_h_indu" class="form-label">L'adresse MAC</label>
+                    <input type="text" class="form-control" id="adresse_mac_h_indu" name="adresse_mac_h_indu" value="{{ LesOrdiHiolleIndustries.adresseMacHIndu }}">
+                </div>
+                <div class="mb-3">
+                    <label for="tag_h_indu" class="form-label">Le TAG</label>
+                    <input type="text" class="form-control" id="tag_h_indu" name="tag_h_indu" value="{{ LesOrdiHiolleIndustries.tagHIndu }}">
+                </div>
+                <div class="mb-3">
+                    <label for="microsoft_h_indu" class="form-label">Microsoft Office</label>
+                    <input type="text" class="form-control" id="microsoft_h_indu" name="microsoft_h_indu" value="{{ LesOrdiHiolleIndustries.microsoftHIndu }}">
+                </div>
+                <div class="mb-3">
+                    <label for="station_acceuil_h_indu" class="form-label">Nom de la station acceuil</label>
+                    <input type="text" class="form-control" id="station_acceuil_h_indu" name="station_acceuil_h_indu" value="{{ LesOrdiHiolleIndustries.stationAcceuilHIndu }}">
+                </div>
+                <div class="mb-3">
+                    <label for="moniteur_h_indu" class="form-label">Nom du moniteur</label>
+                    <input type="text" class="form-control" id="moniteur_h_indu" name="moniteur_h_indu" value="{{ LesOrdiHiolleIndustries.moniteurHIndu }}">
+                </div>
+                <div class="mb-3">
+                    <label for="clavier_souris_h_indu" class="form-label">Clavier + Souris</label>
+                    <input type="text" class="form-control" id="clavier_souris_h_indu" name="clavier_souris_h_indu" value="{{ LesOrdiHiolleIndustries.clavierSourisHIndu }}">
+                </div>
+
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+{% endblock %}

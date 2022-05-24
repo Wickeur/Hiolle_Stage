@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Technologies - Ajout Licence{% endblock %}
+
+{% block body %}
+
+{% include 'le_CSS/css_formulaire.html.twig' %}
+
+<div class="formulaire">
+    <h2>Ajout d'une licence</h2>
+        <div class="row">
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="produit_licence_h_tech" class="form-label">Produit :</label>
+                    <input required type="text" class="form-control" id="produit_licence_h_tech" name="produit_licence_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="poste_licence_h_tech" class="form-label">Poste :</label>
+                    <input type="text" class="form-control" id="poste_licence_h_tech" name="poste_licence_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_licence_h_tech" class="form-label">Utilisateur :</label>
+                    <input type="text" class="form-control" id="utilisateur_licence_h_tech" name="utilisateur_licence_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="code_licence_h_tech" class="form-label">Licence :</label>
+                    <input type="text" class="form-control" id="code_licence_h_tech" name="code_licence_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="date_licence_h_tech" class="form-label">Date :</label>
+                    <input type="date" class="form-control" id="date_licence_h_tech" name="date_licence_h_tech">
+                </div>
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+</div>
+{% endblock %}

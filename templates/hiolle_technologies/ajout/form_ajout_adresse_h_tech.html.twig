@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Technologies - Ajout Adresse MAC{% endblock %}
+
+{% block body %}
+
+{% include 'le_CSS/css_formulaire.html.twig' %}
+
+<div class="formulaire">
+    <h2>Ajout d'une adresse mac</h2>
+        <div class="row">
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="ip_adr_h_tech" class="form-label">Hiolle-tech <br> 192.168.10.8 :</label>
+                    <input type="number" class="form-control" id="ip_adr_h_tech" name="ip_adr_h_tech" min="0">
+                </div>
+                <div class="mb-3">
+                    <label for="ip_cetam_h_tech" class="form-label">CATAM <br> 192.168.10.10:</label>
+                    <input type="number" class="form-control" id="ip_cetam_h_tech" name="ip_cetam_h_tech" min="0">
+                </div>
+                <div class="mb-3">
+                    <label for="mac_adr_h_tech" class="form-label">MAC Adresse :</label>
+                    <input required type="text" class="form-control" id="mac_adr_h_tech" name="mac_adr_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_adr_h_tech" class="form-label">Utilisateur :</label>
+                    <input type="text" class="form-control" id="utilisateur_adr_h_tech" name="utilisateur_adr_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="hiolle_adr_h_tech" class="form-label">Hiolle-tech :</label>
+                    <input type="text" class="form-control" id="hiolle_adr_h_tech" name="hiolle_adr_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="cetam_adr_h_tech" class="form-label">CETAM :</label>
+                    <input type="text" class="form-control" id="cetam_adr_h_tech" name="cetam_adr_h_tech">
+                </div>
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+</div>
+{% endblock %}

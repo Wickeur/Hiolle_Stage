@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Technologies - Ajout Licence Project{% endblock %}
+
+{% block body %}
+
+{% include 'le_CSS/css_formulaire.html.twig' %}
+
+<div class="formulaire">
+    <h2>Ajout Project</h2>
+        <div class="row">
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="poste_p_l_h_tech" class="form-label">Poste :</label>
+                    <input type="text" class="form-control" id="poste_p_l_h_tech" name="poste_p_l_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_p_l_h_tech" class="form-label">Utilisateur :</label>
+                    <input type="text" class="form-control" id="utilisateur_p_l_h_tech" name="utilisateur_p_l_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="licence_p_l_h_tech" class="form-label">Licence :</label>
+                    <input type="text" class="form-control" id="licence_p_l_h_tech" name="licence_p_l_h_tech">
+                </div>
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un compte{% endblock %}
+
+{% block body %}
+    <style>
+        /*Partie Connexion à un compte*/
+        .creation {
+            position: relative;
+            top: 150px;
+            left: 40%;
+            width: 20%;
+            text-align: center;
+            color: white;
+            background-color: #251f1f79;
+            padding: 1%;
+            border-radius: 2%;
+            opacity: 0.9;
+        }
+
+        /*Partie Boostrap*/
+        .form-control,
+        .form-control:focus {
+            background-color: transparent;
+            border: 1px solid #9a9b9c;
+            border-radius: 0.5rem;
+            color: #f8f9fa;
+        }
+
+        .form-control::placeholder,
+        a:hover {
+            color: #9a9b9c;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    </style>
+
+    <div class="contenu">
+        <div class="creation">
+            <h1>Création d'un compte</h1>
+
+            {{ form_start(registrationForm) }}
+            <label class="form-control">Nom</label>
+            <label for="username">{{ form_row(registrationForm.username, {
+                    label: ' '
+                }) }}</label><br>
+            <label class="form-control">Mot de passe</label>
+            <label for="password">{{ form_row(registrationForm.plainPassword, {
+                    label: ' '
+                }) }}
+            </label>
+
+
+            <button class="btn btn-outline-light form-control" type="submit" class="btn">Créer mon compte</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}

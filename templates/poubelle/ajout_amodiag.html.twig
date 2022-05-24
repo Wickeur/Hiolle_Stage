@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amodiag - Nouvel ajout{% endblock %}
+
+{% block body %}
+
+{% include 'le_CSS/css_formulaire.html.twig' %}
+
+    <!--PAGE NON UTILISE-->
+
+<div class="formulaire">
+    <div class="row">
+        {% if msg %}
+            <div class="alert alert-success">{{ msg }}</div>
+        {% endif %}
+        <h2>Ajout de données</h2>
+        <form action="" method="POST">
+            <div class="mb-3">
+                <label for="nom_de_la_station" class="form-label">Quel est le nom de la station ?</label>
+                <input required type="text" class="form-control" id="nom_de_la_station" name="nom_de_la_station">
+            </div>
+            <div class="mb-3">
+                <label for="utilisateur_habituel" class="form-label">Quel est l'utilisateur ? (prénom et nom)</label>
+                <input type="text" class="form-control" id="utilisateur_habituel" name="utilisateur_habituel" placeholder="ex: Julian WICKE">
+            </div>
+            <div class="mb-3">
+                <label for="marque_de_la_station" class="form-label">Quel est la marque de la station ?</label>
+                <input type="text" class="form-control" id="marque_de_la_station" name="marque_de_la_station">
+            </div>
+            <div class="mb-3">
+                <label for="adresse_mac" class="form-label">Quel est l'adresse mac ?</label>
+                <input type="text" class="form-control" id="adresse_mac" name="adresse_mac">
+            </div>
+            <div class="mb-3">
+                <label for="tag" class="form-label">Quel est le tag ?</label>
+                <input type="text" class="form-control" id="tag" name="tag">
+            </div>
+            <div class="mb-3">
+                <label for="microsoft_office" class="form-label">Quel est le microsoft office ?</label>
+                <input type="text" class="form-control" id="microsoft_office" name="microsoft_office">
+            </div>
+            <div class="mb-3">
+                <label for="station_acceuil" class="form-label">Quel est la station acceuil ?</label>
+                <input type="text" class="form-control" id="station_acceuil" name="station_acceuil">
+            </div>
+            <div class="mb-3">
+                <label for="moniteur" class="form-label">Quel est le moniteur ?</label>
+                <input type="text" class="form-control" id="moniteur" name="moniteur">
+            </div>
+            <div class="mb-3">
+                <label for="clavier_souris" class="form-label">Clavier + Souris ?</label>
+                <input type="text" class="form-control" id="clavier_souris" name="clavier_souris">
+            </div>
+
+            <!--Bouton pour valider-->
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+{% endblock %}

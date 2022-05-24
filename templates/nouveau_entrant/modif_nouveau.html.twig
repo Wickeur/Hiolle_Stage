@@ -1,22 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ma donnée à modifier{% endblock %}
+{% block title %}Les Nouveaux Entrants - Modification{% endblock %}
 
 {% block body %}
-<style>
-    h1{
-        text-align: center;
-        margin: 10px;
-        padding: 10px;
-    }
-
-    .formulaire{
-        position: relative;
-        left: 10%;
-        width: 80%;
-        color: white;
-    }
-</style>
+    {% include 'le_CSS/css_modif.html.twig' %}
 
     <div class="formulaire">
         <div class="row">
@@ -31,7 +18,7 @@
                     <input required type="text" class="form-control" id="prenom_nouv" name="prenom_nouv" value="{{ NouveauEntrant.prenomNouv }}">
                 </div>
                 <div class="mb-3">
-                    Le nom de la société ?<br>
+                    A quelle société appartient-il/elle ?<br>
                     <input required type="radio" name="societe_nouv" value="Hiolle Industries"
                            id="h_i"/>
                     <label for="h_i">Hiolle Insdutries</label>
@@ -50,11 +37,11 @@
                     <label for="rep">Société enregistrée : ({{ NouveauEntrant.societeNouv }})</label>
                 </div>
                 <div class="mb-3">
-                    <label for="service_nouv" class="form-label">Le nom de la service ?</label>
+                    <label for="service_nouv" class="form-label">Le nom de son service</label>
                     <input required type="text" class="form-control" id="service_nouv" name="service_nouv" value="{{ NouveauEntrant.serviceNouv }}">
                 </div>
                 <div class="mb-3">
-                    A t'il besoin de matériel pour PC ?<br>
+                    A t'il/elle besoin de matériel pour PC ?<br>
                     <input required type="radio" name="materiel_pc_nouv" value="Oui"
                            id="Oui" />
                     <label for="h_i">Oui</label>
@@ -67,7 +54,7 @@
                     <label for="rep">Réponse enregistrée : ({{ NouveauEntrant.materielPcNouv }})</label>
                 </div>
                 <div class="mb-3">
-                    A t'il besoin d'un logiciel ?<br>
+                    A t'il/elle besoin d'un logiciel ?<br>
                     <input required type="radio" name="logiciel_nouv" value="Oui"
                            id="Oui" />
                     <label for="h_i">Oui</label>
@@ -80,7 +67,7 @@
                     <label for="rep">Réponse enregistrée : ({{ NouveauEntrant.logicielNouv }})</label>
                 </div>
                 <div class="mb-3">
-                    A t'il besoin d'une sacoche ?<br>
+                    A t'il/elle besoin d'une sacoche ?<br>
                     <input required type="radio" name="sacoche_nouv" value="Oui"
                            id="Oui" />
                     <label for="h_i">Oui</label>
@@ -93,11 +80,11 @@
                     <label for="rep">Réponse enregistrée : ({{ NouveauEntrant.sacocheNouv }})</label>
                 </div>
                 <div class="mb-3">
-                    <label for="acces_reseau_nouv" class="form-label">A t'il un accès réseau ?</label>
+                    <label for="acces_reseau_nouv" class="form-label">A t'il/elle besoin d'un accès réseau ?</label>
                     <input required type="text" class="form-control" id="acces_reseau_nouv" name="acces_reseau_nouv" value="{{ NouveauEntrant.accesReseauNouv }}">
                 </div>
                 <div class="mb-3">
-                    <label for="adresse_nouv" class="form-label">A t'il besoin d'une adresse mail ?</label>
+                    <label for="adresse_nouv" class="form-label">A t'il/elle besoin d'une adresse mail ?</label>
                     <input required type="text" class="form-control" id="adresse_nouv" name="adresse_nouv" value="{{ NouveauEntrant.adresseNouv }}">
                 </div>
                 <div class="mb-3">

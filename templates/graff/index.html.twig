@@ -1,0 +1,227 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Graff - Les données{% endblock %}
+
+{% block body %}
+    {% include 'le_CSS/css_affichage_principale.html.twig' %}
+    <style>
+        h1{
+            background-color: transparent;
+            position: relative;
+            left: 45%;
+            text-align: center;
+            border: 1px solid #9a9b9c;
+            border-radius: 0.5rem;
+            padding: 1%;
+            margin-top: 1%;
+        }
+    </style>
+
+    <div class="contenu">
+        <div class="logo">
+            <a href="https://www.graff-sa.com/"><img src="../Image/graff.png"></a>
+        </div>
+        <div class="tableau">
+            <table class="table table-hover">
+                <thead class="titre">
+                <tr>
+                    <th>Nom station
+                        <!--Pour trier-->
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_nom_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                                <a class="dropdown-item" href="{{ path("trier_nom_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        Utilisateur
+                        <!--Pour trier-->
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_user_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                                <a class="dropdown-item" href="{{ path("trier_user_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        Marque station
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_marque_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                                <a class="dropdown-item" href="{{ path("trier_marque_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        Adresse MAC
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_mac_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                                <a class="dropdown-item" href="{{ path("trier_mac_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        TAG
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_tag_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                                <a class="dropdown-item" href="{{ path("trier_tag_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        Microsoft Office
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_micro_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                                <a class="dropdown-item" href="{{ path("trier_micro_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        Station d'acceuil
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_station_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                                <a class="dropdown-item" href="{{ path("trier_station_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        Moniteur
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_moniteur_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                                <a class="dropdown-item" href="{{ path("trier_moniteur_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        Clavier + Souris
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_CS_graff_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                                <a class="dropdown-item" href="{{ path("trier_CS_graff_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                            </div>
+                        </div>
+                    </th>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <th></th>
+                    {% endif %}
+                </tr>
+                </thead>
+
+                <!--La liste-->
+                <tbody>
+                {% for lesPC in LesOrdiGraff %}
+                    <tr>
+                        <td>{{ lesPC.nomStationGraff }}</td>
+                        <td>{{ lesPC.utilisateurGraff }}</td>
+                        <td>{{ lesPC.marqueStationGraff }}</td>
+                        <td>{{ lesPC.adresseMacGraff }}</td>
+                        <td>{{ lesPC.tagGraff }}</td>
+                        <td>{{ lesPC.microsoftGraff }}</td>
+                        <td>{{ lesPC.stationAcceuilGraff }}</td>
+                        <td>{{ lesPC.moniteurGraff }}</td>
+                        <td>{{ lesPC.clavierSourisGraff }}</td>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <td><a href="{{ path("modif_graff", { id:lesPC.id}) }}" class="btn btn-dark">Modifier</a>
+                            <a href="{{ path("sup_graff", { id:lesPC.id}) }}" class="btn btn-danger">Supprimer</a></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="lesBoutons">
+            <a href="{{ path('recherche_graff') }}" class="btn btn-info">Recherche avancée</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="#bar_ajout" class="btn btn-success" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar">Ajouter une donnée</a>
+            {% endif %}
+        </div>
+    </div>
+
+<!--Ajouter-->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="bar_ajout" aria-labelledby="sidebar-label">
+    <div class="offcanvas-header">
+        <h2 class="offcanvas-title" id="sidebar-label">Ajout de données</h2>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="formulaire">
+        <div class="row">
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="nom_station_graff" class="form-label">Quel est le nom de la station ?</label>
+                    <input required type="text" class="form-control" id="nom_station_graff" name="nom_station_graff">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_graff" class="form-label">Quel est l'utilisateur ? (prénom et nom)</label>
+                    <input type="text" class="form-control" id="utilisateur_graff" name="utilisateur_graff" placeholder="ex: Julian WICKE">
+                </div>
+                <div class="mb-3">
+                    <label for="marque_station_graff" class="form-label">Quel est la marque de la station ?</label>
+                    <input type="text" class="form-control" id="marque_station_graff" name="marque_station_graff">
+                </div>
+                <div class="mb-3">
+                    <label for="adresse_mac_graff" class="form-label">Quel est l'adresse mac ?</label>
+                    <input type="text" class="form-control" id="adresse_mac_graff" name="adresse_mac_graff">
+                </div>
+                <div class="mb-3">
+                    <label for="tag_graff" class="form-label">Quel est le tag ?</label>
+                    <input type="text" class="form-control" id="tag_graff" name="tag_graff">
+                </div>
+                <div class="mb-3">
+                    <label for="microsoft_graff" class="form-label">Quel est le microsoft office ?</label>
+                    <input type="text" class="form-control" id="microsoft_graff" name="microsoft_graff">
+                </div>
+                <div class="mb-3">
+                    <label for="station_acceuil_graff" class="form-label">Quel est la station acceuil ?</label>
+                    <input type="text" class="form-control" id="station_acceuil_graff" name="station_acceuil_graff">
+                </div>
+                <div class="mb-3">
+                    <label for="moniteur_graff" class="form-label">Quel est le moniteur ?</label>
+                    <input type="text" class="form-control" id="moniteur_graff" name="moniteur_graff">
+                </div>
+                <div class="mb-3">
+                    <label for="clavier_souris_graff" class="form-label">Clavier + Souris ?</label>
+                    <input type="text" class="form-control" id="clavier_souris_graff" name="clavier_souris_graff">
+                </div>
+
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,162 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Technologies - Les données{% endblock %}
+
+{% block body %}
+    {% include 'le_CSS/css_affichage_principale.html.twig' %}
+    <style>
+        td{
+            white-space: nowrap;
+            text-align: center;
+        }
+        h1{
+            left: 40%;
+        }
+        th{
+            text-align: center;
+            white-space: nowrap;
+        }
+        h2{
+            text-align: center;
+            color: black;
+            background-color: white;
+            border-radius: 20px;
+            width: 40%;
+            padding: 1%;
+            position: relative;
+            left: 30%;
+            opacity: 0.9;
+        }
+        .stations h2{
+            margin-bottom: 1%;
+        }
+        .stations{
+            width: 100%;
+        }
+        .lesBoutons{
+            width: 40%;
+            left: 29%;
+        }
+        .serveurs{
+            text-align: center;
+            width: 49%;
+            padding: 1%;
+        }
+        .tableau2{
+            max-height: 520px;
+            width: 98%;
+            overflow: auto;
+            background-color: white;
+            opacity: 0.9;
+            margin: 1%;
+        }
+        .adresses{
+            text-align: center;
+            width: 49%;
+            padding: 1%;
+        }
+        .licences{
+            position: relative;
+            left: 12.5%;
+            text-align: center;
+            width: 75%;
+            padding: 1%;
+        }
+        .tableau3{
+            max-height: 500px;
+            width: 98%;
+            overflow: auto;
+            background-color: white;
+            opacity: 0.9;
+            margin: 1%;
+        }
+        .projects{
+            text-align: center;
+            width: 50%;
+            padding: 1%;
+        }
+        .offices{
+            text-align: center;
+            width: 50%;
+            padding: 1%;
+        }
+        .projects table{ overflow: auto}
+    </style>
+
+    <div class="contenu">
+        <div class="logo">
+            <a href="https://www.hiolle-technologies.fr/"><img src="../Image/hiolle_techno.png"></a>
+        </div>
+        <div class="stations">
+            <h2 style="width: 15%; left: 41%">Les stations</h2>
+            <div class="tableau">
+                {% include 'hiolle_technologies/liste_station.html.twig' %}
+            </div>
+            <div class="lesBoutons">
+                <a href="{{ path('recherche_hiolle_technologies') }}" class="btn btn-info">Recherche avancée</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="#bar_ajout" class="btn btn-success" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar">Ajouter une station</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="serveurs">
+            <h2>Les serveurs</h2>
+            <div class="tableau2">
+                {% include 'hiolle_technologies/liste_serveurs.html.twig' %}
+            </div>
+            <div class="leBouton2">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('form_ajout_serv_h_tech') }}" class="btn btn-success">Ajouter un serveur</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="adresses">
+            <h2>Les Adresses MAC</h2>
+            <div class="tableau2">
+                {% include 'hiolle_technologies/liste_adresse_mac.html.twig' %}
+            </div>
+            <div class="leBouton3">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('form_ajout_adresse_mac_h_tech') }}" class="btn btn-success">Ajouter une adresse MAC</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="licences">
+            <div class="tableau2">
+                <h2>Licence Microsoft</h2>
+                {% include 'hiolle_technologies/liste_licence.html.twig' %}
+            </div>
+            <div class="leBouton3">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('form_ajout_licence_h_tech') }}" class="btn btn-success">Ajouter une licence</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="projects">
+            <div class="tableau3">
+                <h2>Licence Project</h2>
+                {% include 'hiolle_technologies/liste_licence_project.html.twig' %}
+            </div>
+            <div class="leBouton3">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('form_ajout_licence_project_h_tech') }}" class="btn btn-success">Ajouter</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="offices">
+            <div class="tableau3">
+                <h2>Licence Office</h2>
+                {% include 'hiolle_technologies/liste_licence_office.html.twig' %}
+            </div>
+            <div class="leBouton3">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('form_ajout_licence_office_h_tech') }}" class="btn btn-success">Ajouter</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% include 'hiolle_technologies/ajout/form_ajout_hiolle_tech.html.twig' %}
+
+
+{% endblock %}

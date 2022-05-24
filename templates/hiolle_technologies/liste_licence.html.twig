@@ -1,0 +1,80 @@
+<table class="table table-hover">
+    <thead class="titre">
+    <tr>
+        <th>Produit
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_produit_licence_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_produit_licence_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Poste
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_poste_licence_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_poste_licence_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Utilisateur
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_utilisateur_licence_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_utilisateur_licence_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Licence
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_code_licence_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_code_licence_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Date
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_date_licence_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_date_licence_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        {% if is_granted('ROLE_ADMIN') %}
+            <th></th>
+        {% endif %}
+    </tr>
+    </thead>
+    <!--La liste-->
+    <tbody>
+    {% for lesLicences in LicenceOnlineHiolleTech %}
+        <tr>
+            <td>{{ lesLicences.produitLicenceHTech }}</td>
+            <td>{{ lesLicences.posteLicenceHTech }}</td>
+            <td>{{ lesLicences.utilisateurLicenceHTech }}</td>
+            <td>{{ lesLicences.codeLicenceHTech }}</td>
+            <td>{{ lesLicences.dateLicenceHTech }}</td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td><a href="{{ path("modif_licence_h_tech", { id:lesLicences.id}) }}" class="btn btn-dark">Modifier</a>
+                    <a href="{{ path("sup_licence_h_tech", { id:lesLicences.id}) }}" class="btn btn-danger">Supprimer</a></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

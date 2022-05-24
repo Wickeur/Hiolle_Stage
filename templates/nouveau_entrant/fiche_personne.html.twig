@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche de {{ NouveauEntrant.nomNouv }} {{ NouveauEntrant.prenomNouv }}{% endblock %}
+
+{% block body %}
+    <style>
+        .feuille{
+            display: flex;
+            flex-direction: column;
+            color: black;
+            border: black;
+            position: relative;
+            left: 10%;
+            width: 80%;
+            padding: 1%;
+            margin-top: 1%;
+            margin-bottom: 1%;
+        }
+        .titre{
+            text-align: center;
+            background-color: white;
+            margin: 1%;
+            padding: 3%;
+            border-radius: 50px;
+            border: solid 1px black;
+        }
+        h5{
+            width: 100%;
+        }
+        .profil{
+            width: 100%;
+            margin: 2%;
+        }
+        .info_profil{
+            margin: 1%;
+            display: flex;
+            flex-direction: row;
+        }
+        h6{
+            padding-right: 1%;
+        }
+        .poste_travail{
+            width: 100%;
+            display: grid;
+            grid-auto-flow: row dense;
+            grid-template-columns: 45% 45%;
+            grid-template-rows: 1fr;
+            gap: 45% 10%;
+            margin: 2%;
+        }
+        .info_travail{
+            margin: 1%;
+        }
+        .bulle{
+            border: solid 1px black;
+            background-color: white;
+            margin: 1%;
+            padding: 3%;
+            border-radius: 50px;
+        }
+        .ses_besoins{
+            width: 100%;
+            margin: 2%;
+            display: grid;
+            grid-auto-flow: row dense;
+            grid-template-columns: 49% 49%;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 3% 2%;
+        }
+        #nom_prenom{
+            display: grid;
+            grid-auto-flow: row dense;
+            grid-template-columns: 45% 45%;
+            grid-template-rows: 1fr;
+            gap: 45% 10%;
+        }
+        .N_P{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            margin-right: 2%;
+        }
+        p{
+           margin-left: 2%;
+        }
+        #impression{
+            position: relative;
+            left: 45%;
+        }
+    </style>
+
+    <div class="feuille">
+        <div class="titre"><h2>Fiche de présentation</h2></div>
+
+        <div class="bulle">
+            <h5><u>Profil :</u></h5>
+            <div class="profil">
+                <div class="info_profil" id="nom_prenom">
+                    <div class="N_P"><h6>Nom :</h6>{{ NouveauEntrant.nomNouv }}</div>
+                    <div class="N_P"><h6>Prenom :</h6>{{ NouveauEntrant.prenomNouv }}</div>
+                </div>
+                <div class="info_profil"><h6>Date arrivée :</h6> {{ NouveauEntrant.dateArrivee }}</div>
+            </div>
+        </div>
+
+        <div class="bulle">
+            <h5><u>Poste de travail :</u></h5>
+            <div class="poste_travail">
+                <div class="info_travail"><h6>Nom de la société :</h6>{{ NouveauEntrant.societeNouv }}</div>
+                <div class="info_travail"><h6>Nom du service :</h6>{{ NouveauEntrant.serviceNouv }}</div>
+            </div>
+        </div>
+
+        <div class="bulle">
+            <h5><u>Ses besoins :</u></h5>
+            <div class="ses_besoins">
+                <div class="info_besoin">
+                    <h6>A t'il/elle besoin d'adresse mail ?</h6>
+                    <p>{{ NouveauEntrant.adresseNouv }}</p>
+                </div>
+                <div class="info_besoin">
+                    <h6>A t'il/elle besoin d'une accès réseaux ?</h6>
+                    <p>{{ NouveauEntrant.accesReseauNouv }}</p>
+                </div>
+                <div class="info_besoin">
+                    <h6>A t'il/elle besoin de matériel PC ?</h6>
+                    <p>{{ NouveauEntrant.materielPcNouv }}</p>
+                </div>
+                <div class="info_besoin">
+                    <h6>A t'il/elle besoin d'une sacoche ?</h6>
+                    <p>{{ NouveauEntrant.sacocheNouv }}</p>
+                </div>
+                <div class="info_besoin">
+                    <h6>A t'il/elle besoin d'un logiciel ?</h6>
+                    <p>{{ NouveauEntrant.logicielNouv }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bulle">
+            <h5><u>Autres demandes ?</u></h5>
+            <p>{{ NouveauEntrant.autreDemandeNouv }}</p>
+        </div>
+
+        <form>
+            <input id="impression" name="impression" type="button" onclick="imprimer_page()" value="Imprimer cette page" />
+        </form>
+    </div>
+    <script type="text/javascript">
+        function imprimer_page(){
+            window.print();
+        }
+    </script>
+
+{% endblock %}

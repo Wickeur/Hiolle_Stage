@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Nouveaux Entrants - Ajout{% endblock %}
+
+{% block body %}
+    {% include 'le_CSS/css_formulaire.html.twig' %}
+
+    <div class="formulaire">
+        <div class="row">
+            {% if msg %}
+                <div class="alert alert-success">{{ msg }}</div>
+            {% endif %}
+            <h2>Ajout d'une personne</h2>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="nom_nouv" class="form-label">Quel est son nom ?</label>
+                    <input required type="text" class="form-control" id="nom_nouv" name="nom_nouv">
+                </div>
+                <div class="mb-3">
+                    <label for="prenom_nouv" class="form-label">Quel est son prenom ?</label>
+                    <input required type="text" class="form-control" id="prenom_nouv" name="prenom_nouv">
+                </div>
+                <div class="mb-3">
+                    Le nom de la société ?<br>
+                    <input required type="radio" name="societe_nouv" value="Hiolle Industries"
+                           id="h_i"/>
+                    <label for="h_i">Hiolle Insdutries</label>
+                    <input type="radio" name="societe_nouv" value="Hiolle Technologie"
+                           id="h_t" />
+                    <label for="h_t">Hiolle Technologie</label>
+                    <input type="radio" name="societe_nouv" value="Amodiag"
+                           id="Amodiag" />
+                    <label for="Amodiag">Amodiag</label>
+                    <input type="radio" name="societe_nouv" value="Graff"
+                           id="Graff" />
+                    <label for="Graff">Graff</label>
+                </div>
+                <div class="mb-3">
+                    <label for="service_nouv" class="form-label">Le nom de la service ?</label>
+                    <input required type="text" class="form-control" id="service_nouv" name="service_nouv">
+                </div>
+                <div class="mb-3">
+                    A t'il besoin de matériel pour PC ?<br>
+                    <input required type="radio" name="materiel_pc_nouv" value="Oui"
+                           id="Oui" />
+                    <label for="h_i">Oui</label>
+                    <input type="radio" name="materiel_pc_nouv" value="Non"
+                           id="Non" />
+                    <label for="h_t">Non</label>
+                </div>
+                <div class="mb-3">
+                    A t'il besoin d'un logiciel ?<br>
+                    <input required type="radio" name="logiciel_nouv" value="Oui"
+                           id="Oui" />
+                    <label for="h_i">Oui</label>
+                    <input type="radio" name="logiciel_nouv" value="Non"
+                           id="Non" />
+                    <label for="h_t">Non</label>
+                </div>
+                <div class="mb-3">
+                    A t'il besoin d'une sacoche ?<br>
+                    <input required type="radio" name="sacoche_nouv" value="Oui"
+                           id="Oui" />
+                    <label for="h_i">Oui</label>
+                    <input type="radio" name="sacoche_nouv" value="Non"
+                           id="Non" />
+                    <label for="h_t">Non</label>
+                </div>
+                <div class="mb-3">
+                    <label for="acces_reseau_nouv" class="form-label">A t'il un accès réseau ?</label>
+                    <input required type="text" class="form-control" id="acces_reseau_nouv" name="acces_reseau_nouv" placeholder="Oui/Non (si oui, préciser)">
+                </div>
+                <div class="mb-3">
+                    <label for="adresse_nouv" class="form-label">A t'il besoin d'une adresse mail ?</label>
+                    <input required type="text" class="form-control" id="adresse_nouv" name="adresse_nouv" placeholder="Oui/Non (si oui, préciser)">
+                </div>
+                <div class="mb-3">
+                    <label for="autre_demande_nouv" class="form-label">Autre demande ?</label>
+                    <input type="text" class="form-control" id="autre_demande_nouv" name="autre_demande_nouv">
+                </div>
+                <div class="mb-3">
+                    <label for="date_arrivee" class="form-label">Sa date d'arrivée</label>
+                    <input required type="date" class="form-control" id="date_arrivee" name="date_arrivee">
+                </div>
+
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

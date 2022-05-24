@@ -1,0 +1,632 @@
+<style>
+    #titre-nomstation{
+        position: absolute; background-color: green; color: white; border: solid 2px black; height: 54px; width: 142px
+    }
+    #titre-bouton{
+        position: absolute;
+        background-color: white;
+        right: 2%;
+        height: 55px;
+        width: 202px
+    }
+    #donnee-nomStation{
+        background-color: green; color: white; position: absolute; border: solid 1px black; border-top: 0px; height: 55px; width: 142px
+    }
+    #donnee-bouton{
+        background-color: white; position: absolute; right: 2%
+    }
+</style>
+<table class="table table-hover">
+    <thead class="titre">
+    <tr>
+        <th id="titre-nomstation">Nom station
+            <!--Pour trier-->
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_nom_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_nom_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Nom station
+        </th>
+        <th>
+            Utilisateur
+            <!--Pour trier-->
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_user_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_user_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>IP LAN
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_iplan_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_iplan_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Robot
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_robot_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_robot_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>IP WLAN
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_ipwlan_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_ipwlan_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Produit / SN
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_produit_sn_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_produit_sn_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>
+            Adresse MAC 1 (lan)
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_mac_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_mac_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Adresse MAC 2 (wlan)
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_mac_2_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_mac_2_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Clipper Local
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_clipper_local_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_clipper_local_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Clipper TSE
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_clipper_tes_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_clipper_tes_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Cle Clip
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_cle_clip_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_cle_clip_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Observation
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_observation_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_observation_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Mot de passe Admin Local
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_mdp_admin_local_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_mdp_admin_local_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Service
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_service_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_service_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Prix Achat
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_prix_achat_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_prix_achat_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>Silog
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_silog_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_silog_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>N° de bureau
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_num_bureau_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px>Ordre croissant</a>
+                    <a class="dropdown-item" href="{{ path("trier_num_bureau_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px>Ordre décroissant</a>
+                </div>
+            </div>
+        </th>
+        <th>
+            Marque station
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_marque_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_marque_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Ref
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_ref_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_ref_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Processeur
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_processeur_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_processeur_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Mémoire
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_memoire_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_memoire_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Disque Dur
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_disque_dur_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_disque_dur_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Date Achat
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_date_achat_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_date_achat_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Garantie
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_garantie_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_garantie_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Fixe ou Portable
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_fo_p_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_fo_p_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Ecran Type / Taille
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_ecran_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_ecran_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>
+            Station d'acceuil
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_station_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_station_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Systeme Exploitation
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_syst_exploi_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_syst_exploi_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>
+            TAG
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_tag_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_tag_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Express Service code
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_syst_exploi_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_syst_exploi_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>CAREPACK HP
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_express_service_code_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_express_service_code_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>CAREPACK Date
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_carepack_hp_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_carepack_hp_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Product
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_carepack_date_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_carepack_date_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Num Série
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_syst_exploi_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_syst_exploi_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Iso
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_product_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_product_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Imprimante
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_syst_exploi_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_syst_exploi_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Référence
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_num_serie_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_num_serie_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>
+            Clavier
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_CS_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_CS_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Sacoche portable
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_iso_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_iso_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Pack Office
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_imprimante_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_imprimante_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Antivirus
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_antivirus_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_antivirus_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Scan
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_scan_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_scan_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Silog
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_silog_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_silog_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Autocad
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_autocad_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_autocad_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Autres
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_autres_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_autres_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>MS Project
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_msproject_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_msproject_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Identidié
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_identifie_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_identifie_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        <th>Script de démarrage
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ path("trier_script_demar_h_tech_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                    <a class="dropdown-item" href="{{ path("trier_script_demar_h_tech_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                </div>
+            </div>
+        </th>
+        {% if is_granted('ROLE_ADMIN') %}
+            <th id="titre-bouton"></th>
+            <th></th>
+        {% endif %}
+    </tr>
+    </thead>
+    <!--La liste-->
+    <tbody>
+    {% for lesPC in LesOrdiHiolleTechnologies %}
+        <tr>
+            <td id="donnee-nomStation">{{ lesPC.nomStationHTech }}</td>
+            <td>{{ lesPC.nomStationHTech }}</td>
+            <td>{{ lesPC.utilisateurHTech }}</td>
+            <td>{{ lesPC.IPLANHTech }}</td>
+            <td>{{ lesPC.robot }}</td>
+            <td>{{ lesPC.IPWLANHTech }}</td>
+            <td>{{ lesPC.produitSNHTech }}</td>
+            <td>{{ lesPC.adresseMacHTech }}</td>
+            <td>{{ lesPC.adresseMac2HTech }}</td>
+            <td>{{ lesPC.clipperLocalHTech }}</td>
+            <td>{{ lesPC.clipperTSEHTech }}</td>
+            <td>{{ lesPC.cleclipHTech }}</td>
+            <td>{{ lesPC.observationHTech }}</td>
+            <td>{{ lesPC.mdpAdminLocalHTech }}</td>
+            <td>{{ lesPC.serviceHTech }}</td>
+            <td>{{ lesPC.prixAchatHTech }}</td>
+            <td>{{ lesPC.silog }}</td>
+            <td>{{ lesPC.numBureauHTech }}</td>
+            <td>{{ lesPC.marqueStationHTech }}</td>
+            <td>{{ lesPC.refHTech }}</td>
+            <td>{{ lesPC.processeurHTech }}</td>
+            <td>{{ lesPC.memoireHTech }}</td>
+            <td>{{ lesPC.disqueDurHTech }}</td>
+            <td>{{ lesPC.dateAchat }}</td>
+            <td>{{ lesPC.garantieHTech }}</td>
+            <td>{{ lesPC.foPHTech }}</td>
+            <td>{{ lesPC.ecranHTech }}</td>
+            <td>{{ lesPC.stationAcceuilHTech }}</td>
+            <td>{{ lesPC.systExploiHTech }}</td>
+            <td>{{ lesPC.tagHTech }}</td>
+            <td>{{ lesPC.expressServiceCodeHTech }}</td>
+            <td>{{ lesPC.carepackHpHTech }}</td>
+            <td>{{ lesPC.carepackDate }}</td>
+            <td>{{ lesPC.productHTech }}</td>
+            <td>{{ lesPC.numSerieHTech }}</td>
+            <td>{{ lesPC.isoHTech }}</td>
+            <td>{{ lesPC.imprimanteHTech }}</td>
+            <td>{{ lesPC.referenceHTech }}</td>
+            <td>{{ lesPC.clavierSourisHTech }}</td>
+            <td>{{ lesPC.sacocheHTech }}</td>
+            <td>{{ lesPC.packOfficeHTech }}</td>
+            <td>{{ lesPC.antivirusHTech }}</td>
+            <td>{{ lesPC.scanHTech }}</td>
+            <td>{{ lesPC.silogHTech }}</td>
+            <td>{{ lesPC.autocadHTech }}</td>
+            <td>{{ lesPC.autresHTech }}</td>
+            <td>{{ lesPC.msProjectHTech }}</td>
+            <td>{{ lesPC.identifieHTech }}</td>
+            <td>{{ lesPC.scriptDemarHTech }}</td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <td id="donnee-bouton">
+                    <a href="{{ path("modif_hiolle_technologies", { id:lesPC.id}) }}" class="btn btn-dark" style="position: sticky">Modifier</a>
+                    <a href="{{ path("sup_hiolle_technologies", { id:lesPC.id}) }}" class="btn btn-danger" style="position: sticky">Supprimer</a>
+                </td>
+                <td>
+                    <a href="{{ path("modif_hiolle_technologies", { id:lesPC.id}) }}" class="btn btn-dark" style="position: sticky">Modifier</a>
+                    <a href="{{ path("sup_hiolle_technologies", { id:lesPC.id}) }}" class="btn btn-danger" style="position: sticky">Supprimer</a>
+                </td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

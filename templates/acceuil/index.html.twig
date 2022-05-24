@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue{% endblock %}
+
+{% block body %}
+    <style>
+        .contenu{
+            position: relative;
+            top: 400px;
+            left: 40%;
+            width: 20%;
+            text-align: center;
+            background-color: #9a9b9c;
+            opacity: 0.9;
+        }
+    </style>
+
+    {% if not is_granted('ROLE_USER') %}
+        <div class="contenu">
+            <h1>Bienvenue</h1>
+            <p>Veillez bien vous connecter pour accéder au site</p>
+        </div>
+    {% endif %}
+{% endblock %}

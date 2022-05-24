@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Technologies - Recherche Avancée{% endblock %}
+
+{% block body %}
+    <style>
+        .contenu{
+            color: black;
+            opacity: 0.9;
+            height: 100%;
+        }
+        .recherche{
+            color: black;
+            position: relative;
+            top: 10px;
+            left: 40%;
+            border-radius: 0.5rem;
+            text-align: center;
+            width: 20%;
+            padding: 1%;
+        }
+        .info{
+            width: 90%;
+            display: grid;
+            grid-auto-flow: row dense;
+            grid-template-columns: 23% 23% 23% 23%;
+            grid-template-rows: 1fr 1fr;
+            gap: 3% 3%;
+            margin: 2%;
+            margin-left: 5%;
+        }
+        .infoplus{
+            background-color: white;
+            text-align: center;
+            border: 1px solid #9a9b9c;
+            border-radius: 0.5rem;
+            color: black;
+        }
+        .lesBoutons{
+            text-align: center;
+        }
+        .lesBoutons a {
+            margin: 1%;
+        }
+    </style>
+
+    <div class="recherche">
+        {{ form_start(form) }}
+        <h4>{{ form_row(form.utilisateur_h_tech) }}</h4>
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+        {{ form_end(form) }}
+    </div>
+
+    <div class="contenu">
+        {% for lesPC in LesOrdiHiolleTechnologies %}
+            <div class="lesBoutons">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path("modif_hiolle_technologies", { id:lesPC.id}) }}" class="btn btn-dark">Modifier</a>
+                    <a href="{{ path("sup_hiolle_technologies", { id:lesPC.id}) }}" class="btn btn-danger">Supprimer</a>
+                {% endif %}
+            </div>
+            <div class="info">
+                <div class="infoplus"><h5>Nom de station :</h5>
+                    {{ lesPC.nomStationHTech }}</div>
+                <div class="infoplus"><h5>IP LAN :</h5>
+                    {{ lesPC.IPLANHTech }}</div>
+                <div class="infoplus"><h5>Robot :</h5>
+                    {{ lesPC.robot }}</div>
+                <div class="infoplus"><h5>IP WLAN :</h5>
+                    {{ lesPC.IPWLANHTech }}</div>
+                <div class="infoplus"><h5>Produit :</h5>
+                    {{ lesPC.produitSNHTech }}</div>
+                <div class="infoplus"><h5>Adresse MAC 1 (LAN) :</h5>
+                    {{ lesPC.adresseMacHTech }}</div>
+                <div class="infoplus"><h5>Adresse MAC 2 (WLAN) :</h5>
+                    {{ lesPC.adresseMac2HTech }}</div>
+                <div class="infoplus"><h5>Clipper Local :</h5>
+                    {{ lesPC.clipperLocalHTech }}</div>
+                <div class="infoplus"><h5>Clipper TSE :</h5>
+                    {{ lesPC.clipperTSEHTech }}</div>
+                <div class="infoplus"><h5>Cle Clip :</h5>
+                    {{ lesPC.cleclipHTech }}</div>
+                <div class="infoplus"><h5>Observation :</h5>
+                    {{ lesPC.observationHTech }}</div>
+                <div class="infoplus"><h5>Mot de passe Admin Local :</h5>
+                    {{ lesPC.mdpAdminLocalHTech }}</div>
+                <div class="infoplus"><h5>Service :</h5>
+                    {{ lesPC.serviceHTech }}</div>
+                <div class="infoplus"><h5>Prix Achat :</h5>
+                    {{ lesPC.prixAchatHTech }}</div>
+                <div class="infoplus"><h5>Silog :</h5>
+                    {{ lesPC.silog }}</div>
+                <div class="infoplus"><h5>N° de Bureau :</h5>
+                    {{ lesPC.numBureauHTech }}</div>
+                <div class="infoplus"><h5>Marque de station :</h5>
+                    {{ lesPC.marqueStationHTech }}</div>
+                <div class="infoplus"><h5>Référence :</h5>
+                    {{ lesPC.refHTech }}</div>
+                <div class="infoplus"><h5>Processeur :</h5>
+                    {{ lesPC.processeurHTech }}</div>
+                <div class="infoplus"><h5>Mémoire :</h5>
+                    {{ lesPC.memoireHTech }}</div>
+                <div class="infoplus"><h5>Disque dur :</h5>
+                    {{ lesPC.disqueDurHTech }}</div>
+                <div class="infoplus"><h5>Date achat :</h5>
+                    {{ lesPC.dateAchat }}</div>
+                <div class="infoplus"><h5>Garantie :</h5>
+                    {{ lesPC.garantieHTech }}</div>
+                <div class="infoplus"><h5>Fixe ou Portable :</h5>
+                    {{ lesPC.foPHTech }}</div>
+                <div class="infoplus"><h5>Ecran type / taille :</h5>
+                    {{ lesPC.ecranHTech }}</div>
+                <div class="infoplus"><h5>Station d'acceuil :</h5>
+                    {{ lesPC.stationAcceuilHTech }}</div>
+                <div class="infoplus"><h5>Système d'exploitation :</h5>
+                    {{ lesPC.systExploiHTech }}</div>
+                <div class="infoplus"><h5>TAG :</h5>
+                    {{ lesPC.tagHTech }}</div>
+                <div class="infoplus"><h5>Express Service Code :</h5>
+                    {{ lesPC.expressServiceCodeHTech }}</div>
+                <div class="infoplus"><h5>CAREPACK IP :</h5>
+                    {{ lesPC.carepackHpHTech }}</div>
+                <div class="infoplus"><h5>CAREPACK Date :</h5>
+                    {{ lesPC.carepackDate }}</div>
+                <div class="infoplus"><h5>Product :</h5>
+                    {{ lesPC.productHTech }}</div>
+                <div class="infoplus"><h5>N° de série :</h5>
+                    {{ lesPC.numSerieHTech }}</div>
+                <div class="infoplus"><h5>ISO :</h5>
+                    {{ lesPC.isoHTech }}</div>
+                <div class="infoplus"><h5>Imprimante :</h5>
+                    {{ lesPC.imprimanteHTech }}</div>
+                <div class="infoplus"><h5>Reference :</h5>
+                    {{ lesPC.referenceHTech }}</div>
+                <div class="infoplus"><h5>Souris :</h5>
+                    {{ lesPC.clavierSourisHTech }}</div>
+                <div class="infoplus"><h5>Sacoche :</h5>
+                    {{ lesPC.sacocheHTech }}</div>
+                <div class="infoplus"><h5>Pack Office :</h5>
+                    {{ lesPC.packOfficeHTech }}</div>
+                <div class="infoplus"><h5>Antivirus :</h5>
+                    {{ lesPC.antivirusHTech }}</div>
+                <div class="infoplus"><h5>Scan :</h5>
+                    {{ lesPC.scanHTech }}</div>
+                <div class="infoplus"><h5>Silog :</h5>
+                    {{ lesPC.silogHTech }}</div>
+                <div class="infoplus"><h5>Autocad :</h5>
+                    {{ lesPC.autocadHTech }}</div>
+                <div class="infoplus"><h5>Autres :</h5>
+                    {{ lesPC.autresHTech }}</div>
+                <div class="infoplus"><h5>MS Project :</h5>
+                    {{ lesPC.msProjectHTech }}</div>
+                <div class="infoplus"><h5>Identifié :</h5>
+                    {{ lesPC.identifieHTech }}</div>
+                <div class="infoplus"><h5>Script de démarrage :</h5>
+                    {{ lesPC.scriptDemarHTech }}</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

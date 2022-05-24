@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des utilisateurs{% endblock %}
+
+{% block body %}
+    <style>
+        .tableau{
+            background-color: white;
+            position: relative;
+            margin: 1%;
+            left: 30%;
+            width: 40%;
+            opacity: 0.9;
+            max-height: 550px;
+            overflow: auto;
+        }
+
+    </style>
+    <div class="contenu">
+        <div class="tableau">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        <!--Trier-->
+                        Nom du compte
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ path("trier_username_asc")}}"><img src="../Image/flèche_bas.png" height=30px></a>
+                                <a class="dropdown-item" href="{{ path("trier_username_desc")}}"><img src="../Image/flèche_haut.png" height=30px></a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>Rôle</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <!--La liste-->
+                <tbody>
+                {% for gestion in gestionUtilisateurs %}
+                    <tr>
+                        <td>{{ gestion.username }}</td>
+                        <td>{% for role in gestion.roles %}
+                                <ul>
+                                    <li>{{ role }}</li>
+                                </ul>
+                            {% endfor %}
+                        </td>
+                        <td><a href="{{ path("sup_user", { id:gestion.id}) }}" class="btn btn-danger">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}

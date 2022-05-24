@@ -1,0 +1,233 @@
+<!--Ajouter-->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="bar_ajout" aria-labelledby="sidebar-label">
+    <div class="offcanvas-header">
+        <h2 class="offcanvas-title" id="sidebar-label">Ajout d'une station</h2>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="formulaire">
+        <div class="row">
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="nom_station_h_tech" class="form-label">Nom de la station :</label>
+                    <input required type="text" class="form-control" id="nom_station_h_tech" name="nom_station_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="utilisateur_h_tech" class="form-label">Nom de l'utilisateur</label>
+                    <input type="text" class="form-control" id="utilisateur_h_tech" name="utilisateur_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="iplan_h_tech" class="form-label">IP LAN :</label>
+                    <input type="text" class="form-control" id="iplan_h_tech" name="iplan_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="robot" class="form-label">Robot :</label>
+                    <input type="text" class="form-control" id="robot" name="robot">
+                </div>
+                <div class="mb-3">
+                    <label for="ipwlan_h_tech" class="form-label">IP WLAN :</label>
+                    <input type="text" class="form-control" id="ipwlan_h_tech" name="ipwlan_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="produit_sn_h_tech" class="form-label">Produit / SN :</label>
+                    <input type="text" class="form-control" id="produit_sn_h_tech" name="produit_sn_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="adresse_mac_h_tech" class="form-label">Adresse mac 1 (lan) :</label>
+                    <input type="text" class="form-control" id="adresse_mac_h_tech" name="adresse_mac_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="adresse_mac_2_h_tech" class="form-label">Adresse mac 2 (wlan) :</label>
+                    <input type="text" class="form-control" id="adresse_mac_2_h_tech" name="adresse_mac_2_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="clipper_local_h_tech" class="form-label">Clipper Local :</label>
+                    <input type="text" class="form-control" id="clipper_local_h_tech" name="clipper_local_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="clipper_tse_h_tech" class="form-label">Clipper TSE :</label>
+                    <input type="text" class="form-control" id="clipper_tse_h_tech" name="clipper_tse_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="clip_h_tech" class="form-label">Cle Clip :</label>
+                    <input type="text" class="form-control" id="clip_h_tech" name="clip_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="observation_h_tech" class="form-label">Observation :</label>
+                    <input type="text" class="form-control" id="observation_h_tech" name="observation_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="mdp_admin_local_h_tech" class="form-label">Mot de passe admin Local :</label>
+                    <input type="text" class="form-control" id="mdp_admin_local_h_tech" name="mdp_admin_local_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="service_h_tech" class="form-label">Service :</label>
+                    <input type="text" class="form-control" id="service_h_tech" name="service_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="prix_achat_h_tech" class="form-label">Prix achat :</label>
+                    <input type="text" class="form-control" id="prix_achat_h_tech" name="prix_achat_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="silog" class="form-label">Silog :</label>
+                    <input type="number" class="form-control" id="silog" name="silog" min="0">
+                </div>
+                <div class="mb-3">
+                    <label for="num_bureau_h_tech" class="form-label">N° de bureau :</label>
+                    <input type="text" class="form-control" id="num_bureau_h_tech" name="num_bureau_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="marque_station_h_tech" class="form-label">Marque station :</label>
+                    <input type="text" class="form-control" id="marque_station_h_tech" name="marque_station_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="ref_h_tech" class="form-label">Référence :</label>
+                    <input type="text" class="form-control" id="ref_h_tech" name="ref_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="processeur_h_tech" class="form-label">Processeur :</label>
+                    <input type="text" class="form-control" id="processeur_h_tech" name="processeur_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="memoire_h_tech" class="form-label">Mémoire (en Go) :</label>
+                    <input type="number" class="form-control" id="memoire_h_tech" name="memoire_h_tech" min="0">
+                </div>
+                <div class="mb-3">
+                    <label for="disque_dur_h_tech" class="form-label">Disque Dur (en Go) :</label>
+                    <input type="number" class="form-control" id="disque_dur_h_tech" name="disque_dur_h_tech" min="0">
+                </div>
+                <div class="mb-3">
+                    <label for="date_achat" class="form-label">Date Achat :</label>
+                    <input type="date" class="form-control" id="date_achat" name="date_achat">
+                </div>
+                <div class="mb-3">
+                    <label for="garantie_h_tech" class="form-label">Garantie :</label>
+                    <input type="number" class="form-control" id="garantie_h_tech" name="garantie_h_tech" min="0" max="5">
+                </div>
+                <div class="mb-3">
+                    Fixe ou portable ?<br>
+                    <input required type="radio" name="fo_p_h_tech" value="Fixe"
+                           id="Fixe" />
+                    <label for="Fixe">Fixe</label>
+                    <input type="radio" name="fo_p_h_tech" value="Portable"
+                           id="Portable" />
+                    <label for="Portable">Portable</label>
+                </div>
+                <div class="mb-3">
+                    <label for="ecran_h_tech" class="form-label">Ecran Type / Taille :</label>
+                    <input type="text" class="form-control" id="ecran_h_tech" name="ecran_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="station_acceuil_h_tech" class="form-label">Station d'Acceuil :</label>
+                    <input type="text" class="form-control" id="station_acceuil_h_tech" name="station_acceuil_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="syst_exploi_h_tech" class="form-label">Système d'exploitation :</label>
+                    <input type="text" class="form-control" id="syst_exploi_h_tech" name="syst_exploi_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="tag_h_tech" class="form-label">Le TAG :</label>
+                    <input type="text" class="form-control" id="tag_h_tech" name="tag_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="express_service_code_h_tech" class="form-label">Express service code :</label>
+                    <input type="text" class="form-control" id="express_service_code_h_tech" name="express_service_code_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="carepack_hp_h_tech" class="form-label">CAREPACK HP :</label>
+                    <input type="text" class="form-control" id="carepack_hp_h_tech" name="carepack_hp_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="carepack_date" class="form-label">CAREPACK Date :</label>
+                    <input type="text" class="form-control" id="carepack_date" name="carepack_date">
+                </div>
+                <div class="mb-3">
+                    <label for="product_h_tech" class="form-label">Product :</label>
+                    <input type="text" class="form-control" id="product_h_tech" name="product_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="num_serie_h_tech" class="form-label">N° de série :</label>
+                    <input type="text" class="form-control" id="num_serie_h_tech" name="num_serie_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="iso_h_tech" class="form-label">ISO :</label>
+                    <input type="text" class="form-control" id="iso_h_tech" name="iso_h_tech">
+                </div>
+                <div class="mb-3">
+                    Imprimante :<br>
+                    <input required type="radio" name="imprimante_h_tech" value="Oui"
+                           id="Oui" />
+                    <label for="Oui">Oui</label>
+                    <input type="radio" name="imprimante_h_tech" value="Non"
+                           id="Non" checked/>
+                    <label for="Non">Non</label>
+                </div>
+                <div class="mb-3">
+                    <label for="reference_h_tech" class="form-label">Référence :</label>
+                    <input type="text" class="form-control" id="reference_h_tech" name="reference_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="clavier_souris_h_tech" class="form-label">Souris :</label>
+                    <input type="text" class="form-control" id="clavier_souris_h_tech" name="clavier_souris_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="sacoche_h_tech" class="form-label">Sacoche :</label>
+                    <input type="text" class="form-control" id="sacoche_h_tech" name="sacoche_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="pack_office_h_tech" class="form-label">Pack Office:</label>
+                    <input type="text" class="form-control" id="pack_office_h_tech" name="pack_office_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="antivirus_h_tech" class="form-label">Antivirus :</label>
+                    <input type="text" class="form-control" id="antivirus_h_tech" name="antivirus_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="scan_h_tech" class="form-label">Sacoche :</label>
+                    <input type="text" class="form-control" id="scan_h_tech" name="scan_h_tech">
+                </div>
+                <div class="mb-3">
+                    Silog :<br>
+                    <input required type="radio" name="silog_h_tech" value="Oui"
+                           id="Oui" />
+                    <label for="Oui">Oui</label>
+                    <input type="radio" name="silog_h_tech" value="Non"
+                           id="Non" checked/>
+                    <label for="Non">Non</label>
+                </div>
+                <div class="mb-3">
+                    Autocad :<br>
+                    <input required type="radio" name="autocad_h_tech" value="Oui"
+                           id="Oui" />
+                    <label for="Oui">Oui</label>
+                    <input type="radio" name="autocad_h_tech" value="Non"
+                           id="Non" checked/>
+                    <label for="Non">Non</label>
+                </div>
+                <div class="mb-3">
+                    <label for="autres_h_tech" class="form-label">Autres :</label>
+                    <input type="text" class="form-control" id="autres_h_tech" name="autres_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="msproject_h_tech" class="form-label">MS Project :</label>
+                    <input type="text" class="form-control" id="msproject_h_tech" name="msproject_h_tech">
+                </div>
+                <div class="mb-3">
+                    Identifié :<br>
+                    <input required type="radio" name="identifie_h_tech" value="Oui"
+                           id="Oui" />
+                    <label for="Oui">Oui</label>
+                    <input type="radio" name="identifie_h_tech" value="Non"
+                           id="Non" checked/>
+                    <label for="Non">Non</label>
+                </div>
+                <div class="mb-3">
+                    <label for="script_demar_h_tech" class="form-label">Script de démarrage :</label>
+                    <input type="text" class="form-control" id="script_demar_h_tech" name="script_demar_h_tech">
+                </div>
+
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>

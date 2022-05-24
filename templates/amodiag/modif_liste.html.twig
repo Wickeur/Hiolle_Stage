@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amodiag - Modification{% endblock %}
+
+{% block body %}
+    {% include 'le_CSS/css_modif.html.twig' %}
+
+        <div class="formulaire">
+            <div class="row">
+                <h2>Modifier la donnée</h2>
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <label for="nom_de_la_station" class="form-label">Nom de station</label>
+                        <input type="text" class="form-control" id="nom_de_la_station" name="nom_de_la_station" value="{{ lesOrdinateurs.nomDeLaStation }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="utilisateur_habituel" class="form-label">Nom utilisateur</label>
+                        <input type="text" class="form-control" id="utilisateur_habituel" name="utilisateur_habituel" value="{{ lesOrdinateurs.utilisateurHabituel }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="marque_de_la_station" class="form-label">Marque de la station</label>
+                        <input type="text" class="form-control" id="marque_de_la_station" name="marque_de_la_station" value="{{ lesOrdinateurs.marqueDeLaStation }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="adresse_mac" class="form-label">L'adresse MAC</label>
+                        <input type="text" class="form-control" id="adresse_mac" name="adresse_mac" value="{{ lesOrdinateurs.adresseMac }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tag" class="form-label">Le TAG</label>
+                        <input type="text" class="form-control" id="tag" name="tag" value="{{ lesOrdinateurs.tag }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="microsoft_office" class="form-label">Microsoft Office</label>
+                        <input type="text" class="form-control" id="microsoft_office" name="microsoft_office" value="{{ lesOrdinateurs.microsoftOffice }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="station_acceuil" class="form-label">Nom de la station acceuil</label>
+                        <input type="text" class="form-control" id="station_acceuil" name="station_acceuil" value="{{ lesOrdinateurs.stationAcceuil }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="moniteur" class="form-label">Nom du moniteur</label>
+                        <input type="text" class="form-control" id="moniteur" name="moniteur" value="{{ lesOrdinateurs.moniteur }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="clavier_souris" class="form-label">Clavier + Souris</label>
+                        <input type="text" class="form-control" id="clavier_souris" name="clavier_souris" value="{{ lesOrdinateurs.clavierSouris }}">
+                    </div>
+
+                    <!--Bouton pour valider-->
+                    <input type="submit" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+{% endblock %}

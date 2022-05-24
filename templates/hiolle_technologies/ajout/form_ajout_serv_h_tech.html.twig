@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hiolle Technologies - Ajout serveur{% endblock %}
+
+{% block body %}
+
+{% include 'le_CSS/css_formulaire.html.twig' %}
+
+<div class="formulaire">
+    <h2>Ajout d'un serveur</h2>
+        <div class="row">
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="nom_serv_h_tech" class="form-label">Nom du serveur :</label>
+                    <input required type="text" class="form-control" id="nom_serv_h_tech" name="nom_serv_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="salle_serv_h_tech" class="form-label">Emplacement :</label>
+                    <input type="text" class="form-control" id="salle_serv_h_tech" name="salle_serv_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="ip_serv_h_tech" class="form-label">IP :</label>
+                    <input type="text" class="form-control" id="ip_serv_h_tech" name="ip_serv_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="dc_serv_h_tech" class="form-label">DC :</label>
+                    <input type="text" class="form-control" id="dc_serv_h_tech" name="dc_serv_h_tech">
+                </div>
+                <div class="mb-3">
+                    <label for="role_serv_h_tech" class="form-label">Rôle :</label>
+                    <input type="text" class="form-control" id="role_serv_h_tech" name="role_serv_h_tech">
+                </div>
+                <!--Bouton pour valider-->
+                <input type="submit" class="btn btn-primary">
+            </form>
+        </div>
+</div>
+{% endblock %}
